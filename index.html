@@ -111,11 +111,55 @@
           <!-- Main Chat Room | Right -->
           <div id="chat-room">
             <!-- Contact Settings View -->
-            <div class="contact__settings"></div>
+            <div class="contact__settings">
+              <!-- Contact Picture, Full Name & Last Access -->
+              <div class="contact__basic-info">
+                <img class="cs-img-circle" src="img/avatar_1.jpg" alt="Michele" />
+                <div class="ms-3">
+                  <h6 class="mb-0">Michele</h6>
+                  <span class="text-secondary">Ultimo accesso oggi alle</span>
+                </div>
+              </div>
+              <!-- User Action Buttons -->
+              <div class="contact__action-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-paperclip"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </div>
+            </div>
             <!-- Current Contact Chat Overview -->
-            <div class="contact__chat-overview"></div>
+            <div class="contact__chat-overview">
+              <!-- Message Box | User (white) & Contact (green) -->
+              <div class="message-box message-from-contact">
+                <!-- Content of the message -->
+                <div class="message-content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio magnam totam
+                  eaque dolorum, accusantium molestias iusto consequatur pariatur, delectus repellat
+                  at, quidem cumque numquam natus! Sapiente quae nulla sed quam.
+                </div>
+                <!-- Date when the message was sent -->
+                <div class="message-date">10/01/2022 16:15:22</div>
+              </div>
+              <div class="message-box message-from-user">
+                <!-- Content of the message -->
+                <div class="message-content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi laudantium
+                  perferendis accusantium maxime sint saepe, tenetur nesciunt laborum minima nulla
+                  dolorum, enim quo voluptas ratione, fuga dolor explicabo non ut.
+                </div>
+                <!-- Date when the message was sent -->
+                <div class="message-date">10/01/2022 16:18:22</div>
+              </div>
+            </div>
             <!-- User Chat Box -->
-            <div class="user__chat-box"></div>
+            <div class="user__chat-box">
+              <!-- Emoji Button -->
+              <i class="chat-box-btn fa-regular fa-face-smile"></i>
+              <!-- Chat Box Input -->
+              <input type="text" placeholder="Scrivi un messaggio" />
+              <!-- Microphone Button -->
+              <i class="chat-box-btn fa-solid fa-microphone"></i>
+            </div>
           </div>
         </section>
       </div>
