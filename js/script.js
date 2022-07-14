@@ -21,8 +21,7 @@
 // Buon lavoro e soprattutto buon divertimento!!
 
 const boolzapp = new Vue({
-  name: "",
-  el: "",
+  el: "#boolzapp",
   data: {
     user: {
       name: "Nome Utente",
@@ -44,6 +43,22 @@ const boolzapp = new Vue({
       {
         name: "Luisa",
         avatar: "_4",
+      },
+      {
+        name: "Alessandra",
+        avatar: "_5",
+      },
+      {
+        name: "Marco",
+        avatar: "_6",
+      },
+      {
+        name: "Simona",
+        avatar: "_7",
+      },
+      {
+        name: "Donatello",
+        avatar: "_8",
       },
     ],
   },

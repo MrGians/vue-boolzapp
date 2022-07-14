@@ -39,8 +39,8 @@
             <div class="user__settings">
               <!-- User Picture & Full Name -->
               <div class="user__basic-info">
-                <img class="cs-img-circle" src="img/avatar_io.jpg" alt="Myself" />
-                <span>Nome Utente</span>
+                <img class="cs-img-circle" :src="`img/avatar${user.avatar}.jpg`" :alt="user.name" />
+                <span>{{user.name}}</span>
               </div>
               <!-- User Action Buttons -->
               <div class="user__action-btn">
@@ -71,39 +71,13 @@
             <!-- User Contacts List -->
             <div class="user__contacts-list">
               <ul class="contacts-list-group">
-                <li>
-                  <img class="cs-img-circle" src="img/avatar_1.jpg" alt="Michele" />
-                  <span class="ms-3">Michele</span>
-                </li>
-                <li>
-                  <img class="cs-img-circle" src="img/avatar_2.jpg" alt="Fabio" />
-                  <span class="ms-3">Fabio</span>
-                </li>
-                <li>
-                  <img class="cs-img-circle" src="img/avatar_3.jpg" alt="Maria" />
-                  <span class="ms-3">Maria</span>
-                </li>
-                <li>
-                  <img class="cs-img-circle" src="img/avatar_4.jpg" alt="Gianluca" />
-                  <span class="ms-3">Gianluca</span>
-                </li>
-                <li>
-                  <img class="cs-img-circle" src="img/avatar_5.jpg" alt="Gabriella" />
-                  <span class="ms-3">Gabriella</span>
-                </li>
-                <li>
-                  <img class="cs-img-circle" src="img/avatar_6.jpg" alt="Simona" />
-                  <span class="ms-3">Simona</span>
-                </li>
-                <li>
-                  <img class="cs-img-circle" src="img/avatar_7.jpg" alt="Claudio" />
-
-                  <span class="ms-3">Claudio</span>
-                </li>
-                <li>
-                  <img class="cs-img-circle" src="img/avatar_7.jpg" alt="Marco" />
-
-                  <span class="ms-3">Marco</span>
+                <li v-for="contact in contacts">
+                  <img
+                    class="cs-img-circle"
+                    :src="`img/avatar${contact.avatar}.jpg`"
+                    :alt="contact.name"
+                  />
+                  <span class="ms-3">{{contact.name}}</span>
                 </li>
               </ul>
             </div>
