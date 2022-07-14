@@ -71,7 +71,7 @@
             <!-- User Contacts List -->
             <div class="user__contacts-list">
               <ul class="contacts-list-group">
-                <li v-for="contact in contacts">
+                <li v-for="(contact, i) in contacts" @click="getCurrentContactChat(i)">
                   <img
                     class="cs-img-circle"
                     :src="`img/avatar${contact.avatar}.jpg`"
@@ -83,14 +83,18 @@
             </div>
           </div>
           <!-- Main Chat Room | Right -->
-          <div id="chat-room">
+          <div v-if="currentContact" id="chat-room">
             <!-- Contact Settings View -->
             <div class="contact__settings">
               <!-- Contact Picture, Full Name & Last Access -->
               <div class="contact__basic-info">
-                <img class="cs-img-circle" src="img/avatar_1.jpg" alt="Michele" />
+                <img
+                  class="cs-img-circle"
+                  :src="`img/avatar${currentContact.avatar}.jpg`"
+                  :alt="currentContact.name"
+                />
                 <div class="ms-3">
-                  <h6 class="mb-0">Michele</h6>
+                  <h6 class="mb-0">{{currentContact.name}}</h6>
                   <span class="text-secondary">Ultimo accesso oggi alle</span>
                 </div>
               </div>
@@ -104,25 +108,14 @@
             <!-- Current Contact Chat Overview -->
             <div class="contact__chat-overview">
               <!-- Message Box | User (white) & Contact (green) -->
-              <div class="message-box message-from-contact">
+              <div
+                v-for="message in currentContact.messages"
+                class="message-box message-from-contact"
+              >
                 <!-- Content of the message -->
-                <div class="message-content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio magnam totam
-                  eaque dolorum, accusantium molestias iusto consequatur pariatur, delectus repellat
-                  at, quidem cumque numquam natus! Sapiente quae nulla sed quam.
-                </div>
+                <div class="message-content">{{message.text}}</div>
                 <!-- Date when the message was sent -->
-                <div class="message-date">10/01/2022 16:15:22</div>
-              </div>
-              <div class="message-box message-from-user">
-                <!-- Content of the message -->
-                <div class="message-content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi laudantium
-                  perferendis accusantium maxime sint saepe, tenetur nesciunt laborum minima nulla
-                  dolorum, enim quo voluptas ratione, fuga dolor explicabo non ut.
-                </div>
-                <!-- Date when the message was sent -->
-                <div class="message-date">10/01/2022 16:18:22</div>
+                <div class="message-date">{{message.Date}}</div>
               </div>
             </div>
             <!-- User Chat Box -->

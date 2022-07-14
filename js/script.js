@@ -27,41 +27,80 @@ const boolzapp = new Vue({
       name: "Nome Utente",
       avatar: "_io",
     },
+    currentContact: undefined,
     contacts: [
       {
         name: "Michele",
         avatar: "_1",
+        messages: [
+          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
+          { text: "Io mi chiamo Michele piacere!", date: "10/01/2022 16:18:47" },
+        ],
       },
       {
         name: "Fabio",
         avatar: "_2",
+        messages: [
+          { text: "Come ti chiami?", date: "22/01/2022 18:15:22" },
+          { text: "Io mi chiamo Fabio piacere!", date: "23/01/2022 16:18:47" },
+        ],
       },
       {
         name: "Samuele",
         avatar: "_3",
+        messages: [
+          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
+          { text: "Io mi chiamo Samuele piacere!", date: "10/01/2022 16:18:47" },
+        ],
       },
       {
         name: "Luisa",
         avatar: "_4",
+        messages: [
+          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
+          { text: "Io mi chiamo Luisa piacere!", date: "10/01/2022 16:18:47" },
+        ],
       },
       {
         name: "Alessandra",
         avatar: "_5",
+        messages: [
+          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
+          { text: "Io mi chiamo Alessandra piacere!", date: "10/01/2022 16:18:47" },
+        ],
       },
       {
         name: "Marco",
         avatar: "_6",
+        messages: [
+          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
+          { text: "Io mi chiamo Marco piacere!", date: "10/01/2022 16:18:47" },
+        ],
       },
       {
         name: "Simona",
         avatar: "_7",
+        messages: [
+          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
+          { text: "Io mi chiamo Simona piacere!", date: "10/01/2022 16:18:47" },
+        ],
       },
       {
         name: "Donatello",
         avatar: "_8",
+        messages: [
+          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
+          { text: "Io mi chiamo Donatello piacere!", date: "10/01/2022 16:18:47" },
+        ],
       },
     ],
   },
   computed: {},
-  methods: {},
+  methods: {
+    getCurrentContactChat(i) {
+      this.contacts.forEach((cont, index) => {
+        if (index === i) this.currentContact = cont;
+      });
+    },
+  },
 });
