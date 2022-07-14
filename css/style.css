@@ -1,12 +1,99 @@
 /*********** Palette color ***********/
-:root{
-    --primary: #;
-    --secondary: #;
+:root {
+  --white: #ffffff;
+  --grey: #b1b1b1;
+  --black: #2b3132;
+  --bg-primary: #eaeaea;
+  --bg-secondary: #8edafc;
 }
-
 
 /*********** Utilities ***********/
 
-
 /*********** Generics ***********/
+body {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgb(0, 150, 136) 15vh, rgb(218, 219, 212) 15vh);
+}
+main {
+  height: 100vh;
+  padding-top: 2vh;
+}
 
+/*********** Boolzapp ***********/
+#boolzapp {
+  height: 95vh;
+  display: flex;
+
+  /* TO DO DELETE */
+  background-color: #3a3aff;
+}
+
+#sidebar {
+  height: 100%;
+  width: 35%;
+
+  /* TO DO DELETE */
+  background-color: #3aff85;
+}
+
+#chat-room {
+  height: 100%;
+  width: 60%;
+  flex-grow: 1;
+
+  /* TO DO DELETE */
+  background-color: #ffdb3a;
+}
+
+/*********** Boolzapp => Sidebar ***********/
+#sidebar .user__settings {
+  height: 60px;
+
+  /* TO DO DELETE */
+  background-color: #f8f3de;
+}
+
+#sidebar .user__notifications-popup {
+  height: 70px;
+
+  /* TO DO DELETE */
+  background-color: #3ad1ff;
+}
+
+#sidebar .contacts__search-bar {
+  height: 40px;
+
+  /* TO DO DELETE */
+  background-color: #61ff3a;
+}
+
+#sidebar .contacts__list {
+  height: calc(100% - 170px);
+  overflow-y: scroll;
+
+  /* TO DO DELETE */
+  background-color: #99b392;
+}
+
+/*********** Boolzapp => Chat Room ***********/
+#chat-room .contact__settings {
+  height: 60px;
+
+  /* TO DO DELETE */
+  background-color: #c76727;
+}
+
+#chat-room .contact__chat-overview {
+  height: calc(100% - 120px);
+  overflow-y: scroll;
+
+  /* TO DO DELETE */
+  background-color: #c72727;
+}
+
+#chat-room .user__chat-box {
+  height: 60px;
+
+  /* TO DO DELETE */
+  background-color: #c76727;
+}
