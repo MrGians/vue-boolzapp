@@ -1,4 +1,4 @@
-/*********** Palette color ***********/
+/* # ********** Palette color ***********/
 :root {
   --white: #ffffff;
   --grey: #b1b1b1;
@@ -7,9 +7,36 @@
   --bg-secondary: #8edafc;
 }
 
-/*********** Utilities ***********/
+/* # ********** Utilities ***********/
 
-/*********** Generics ***********/
+/* Color & BG-Color Utils */
+.cs-bg-primary {
+  background-color: var(--bg-primary);
+}
+.cs-bg-secondary {
+  background-color: var(--bg-secondary);
+}
+.cs-bg-white {
+  background-color: var(--white);
+}
+.cs-txt-white {
+  color: var(--white);
+}
+.cs-txt-grey {
+  color: var(--grey);
+}
+.cs-txt-black {
+  color: var(--black);
+}
+
+/* Image Utils */
+.cs-img-circle {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+}
+
+/* # ********** Generics ***********/
 body {
   height: 100vh;
   background-image: linear-gradient(to bottom, rgb(0, 150, 136) 15vh, rgb(218, 219, 212) 15vh);
@@ -19,12 +46,12 @@ main {
   padding-top: 2vh;
 }
 
-/*********** Boolzapp ***********/
+/* # ********** Boolzapp ***********/
 #boolzapp {
   height: 95vh;
   display: flex;
 
-  /* TO DO DELETE */
+  /* TODO DELETE */
   background-color: #3a3aff;
 }
 
@@ -32,7 +59,7 @@ main {
   height: 100%;
   width: 35%;
 
-  /* TO DO DELETE */
+  /* TODO DELETE */
   background-color: #3aff85;
 }
 
@@ -41,59 +68,120 @@ main {
   width: 60%;
   flex-grow: 1;
 
-  /* TO DO DELETE */
+  /* TODO DELETE */
   background-color: #ffdb3a;
 }
 
-/*********** Boolzapp => Sidebar ***********/
+/* # ********** Boolzapp => Sidebar ***********/
 #sidebar .user__settings {
   height: 60px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  /* TO DO DELETE */
-  background-color: #f8f3de;
+  background-color: var(--bg-primary);
 }
 
+/* | User Settings View [Sidebar] */
+#sidebar .user__settings .user__basic-info,
+#sidebar .user__settings .user__action-btn {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar .user__settings .user__action-btn > * {
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+  color: var(--grey);
+}
+
+/* | User Notifications Popup [Sidebar] */
 #sidebar .user__notifications-popup {
   height: 70px;
-
-  /* TO DO DELETE */
-  background-color: #3ad1ff;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--bg-secondary);
 }
 
-#sidebar .contacts__search-bar {
+#sidebar .user__notifications-popup .user__popup-icon {
+  color: var(--bg-secondary);
+  background-color: var(--white);
+  padding: 0.5rem calc(0.5rem + 2px);
+  border-radius: 50%;
+}
+
+#sidebar .user__notifications-popup .user__popup-content {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
+
+/* | User Search Bar [Sidebar] */
+#sidebar .user__search-bar {
   height: 40px;
-
-  /* TO DO DELETE */
-  background-color: #61ff3a;
+  padding: 0.5rem;
+  background-color: var(--bg-primary);
 }
 
-#sidebar .contacts__list {
+#sidebar .user__search-bar .user__input-box {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+}
+
+#sidebar .user__search-bar .user__input-box i {
+  font-size: normal;
+  padding: 0 0.5rem;
+  color: var(--grey);
+}
+
+#sidebar .user__search-bar .user__input-box input {
+  border: none;
+  flex-grow: 1;
+}
+
+/* | User Contacts List [Sidebar] */
+#sidebar .user__contacts-list {
   height: calc(100% - 170px);
-  overflow-y: scroll;
-
-  /* TO DO DELETE */
-  background-color: #99b392;
+  overflow-y: auto;
+  background-color: var(--white);
 }
 
-/*********** Boolzapp => Chat Room ***********/
+#sidebar .user__contacts-list .contacts-list-group {
+  list-style-type: none;
+  padding: 0;
+}
+
+#sidebar .user__contacts-list .contacts-list-group li {
+  height: 70px;
+  padding: 0.5rem;
+  border-top: 1px solid var(--bg-primary);
+  display: flex;
+}
+
+/* # ********** Boolzapp => Chat Room ***********/
 #chat-room .contact__settings {
   height: 60px;
 
-  /* TO DO DELETE */
+  /* TODO DELETE */
   background-color: #c76727;
 }
 
 #chat-room .contact__chat-overview {
   height: calc(100% - 120px);
-  overflow-y: scroll;
+  overflow-y: auto;
 
-  /* TO DO DELETE */
+  /* TODO DELETE */
   background-color: #c72727;
 }
 
 #chat-room .user__chat-box {
   height: 60px;
 
-  /* TO DO DELETE */
+  /* TODO DELETE */
   background-color: #c76727;
 }
