@@ -67,7 +67,12 @@
             <div class="user__search-bar">
               <div class="user__input-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Cerca o Inizia una nuova chat" />
+                <input
+                  v-model="filteredQuery"
+                  @keyup="filteredContacts"
+                  type="text"
+                  placeholder="Cerca o Inizia una nuova chat"
+                />
               </div>
             </div>
             <!-- User Contacts List -->
