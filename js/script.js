@@ -27,6 +27,7 @@ const boolzapp = new Vue({
       name: "Nome Utente",
       avatar: "_io",
     },
+    newMessage: "",
     currentContact: undefined,
     contacts: [
       {
@@ -128,6 +129,16 @@ const boolzapp = new Vue({
     },
     isMessageReceived(message) {
       return message.status === "received" ? "received" : "sent";
+    },
+    sendNewMessage() {
+      const newMessage = {
+        text: this.newMessage,
+        date: "To do",
+        status: "send",
+      };
+
+      this.currentContact.messages.push(newMessage);
+      this.newMessage = "";
     },
   },
 });

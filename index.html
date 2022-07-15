@@ -107,7 +107,7 @@
             </div>
             <!-- Current Contact Chat Overview -->
             <div class="contact__chat-overview">
-              <!-- Message Box | User (white) & Contact (green) -->
+              <!-- Message Box | Contact (white) & User (green) -->
               <div
                 v-for="message in currentContact.messages"
                 class="message-box"
@@ -124,7 +124,12 @@
               <!-- Emoji Button -->
               <i class="chat-box-btn fa-regular fa-face-smile"></i>
               <!-- Chat Box Input -->
-              <input type="text" placeholder="Scrivi un messaggio" />
+              <input
+                v-model="newMessage"
+                @keyup.enter="sendNewMessage"
+                type="text"
+                placeholder="Scrivi un messaggio"
+              />
               <!-- Microphone Button -->
               <i class="chat-box-btn fa-solid fa-microphone"></i>
             </div>
