@@ -131,6 +131,17 @@
                 <div class="message-content">{{message.text}}</div>
                 <!-- Date when the message was sent -->
                 <div class="message-date">{{message.date}}</div>
+                <!-- Message Controls -->
+                <div class="message-controls">
+                  <i
+                    @click="message.isActive = !message.isActive"
+                    class="fa-solid fa-angle-down"
+                  ></i>
+                  <ul class="message-dropdown" :class="{active : message.isActive}">
+                    <li>Cancella Messaggio</li>
+                    <li>Info Messaggio</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <!-- User Chat Box -->

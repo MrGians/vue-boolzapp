@@ -14,12 +14,18 @@ const boolzapp = new Vue({
         name: "Michele",
         avatar: "_1",
         messages: [
-          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          {
+            text: "Ciao come ti chiami?",
+            date: "10/01/2022 16:15:22",
+            status: "received",
+            isActive: false,
+          },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
           {
             text: "Io mi chiamo Michele piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
+            isActive: false,
           },
         ],
       },
@@ -27,21 +33,37 @@ const boolzapp = new Vue({
         name: "Fabio",
         avatar: "_2",
         messages: [
-          { text: "Ciao come ti chiami?", date: "22/01/2022 18:15:22", status: "received" },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
-          { text: "Io mi chiamo Fabio piacere!", date: "23/01/2022 16:18:47", status: "received" },
+          {
+            text: "Ciao come ti chiami?",
+            date: "22/01/2022 18:15:22",
+            status: "received",
+            isActive: false,
+          },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          {
+            text: "Io mi chiamo Fabio piacere!",
+            date: "23/01/2022 16:18:47",
+            status: "received",
+            isActive: false,
+          },
         ],
       },
       {
         name: "Samuele",
         avatar: "_3",
         messages: [
-          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          {
+            text: "Ciao come ti chiami?",
+            date: "10/01/2022 16:15:22",
+            status: "received",
+            isActive: false,
+          },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
           {
             text: "Io mi chiamo Samuele piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
+            isActive: false,
           },
         ],
       },
@@ -49,21 +71,37 @@ const boolzapp = new Vue({
         name: "Luisa",
         avatar: "_4",
         messages: [
-          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
-          { text: "Io mi chiamo Luisa piacere!", date: "10/01/2022 16:18:47", status: "received" },
+          {
+            text: "Ciao come ti chiami?",
+            date: "10/01/2022 16:15:22",
+            status: "received",
+            isActive: false,
+          },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          {
+            text: "Io mi chiamo Luisa piacere!",
+            date: "10/01/2022 16:18:47",
+            status: "received",
+            isActive: false,
+          },
         ],
       },
       {
         name: "Alessandra",
         avatar: "_5",
         messages: [
-          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          {
+            text: "Ciao come ti chiami?",
+            date: "10/01/2022 16:15:22",
+            status: "received",
+            isActive: false,
+          },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
           {
             text: "Io mi chiamo Alessandra piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
+            isActive: false,
           },
         ],
       },
@@ -71,30 +109,56 @@ const boolzapp = new Vue({
         name: "Marco",
         avatar: "_6",
         messages: [
-          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
-          { text: "Io mi chiamo Marco piacere!", date: "10/01/2022 16:18:47", status: "received" },
+          {
+            text: "Ciao come ti chiami?",
+            date: "10/01/2022 16:15:22",
+            status: "received",
+            isActive: false,
+          },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          {
+            text: "Io mi chiamo Marco piacere!",
+            date: "10/01/2022 16:18:47",
+            status: "received",
+            isActive: false,
+          },
         ],
       },
       {
         name: "Simona",
         avatar: "_7",
         messages: [
-          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
-          { text: "Io mi chiamo Simona piacere!", date: "10/01/2022 16:18:47", status: "received" },
+          {
+            text: "Ciao come ti chiami?",
+            date: "10/01/2022 16:15:22",
+            status: "received",
+            isActive: false,
+          },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          {
+            text: "Io mi chiamo Simona piacere!",
+            date: "10/01/2022 16:18:47",
+            status: "received",
+            isActive: false,
+          },
         ],
       },
       {
         name: "Donatello",
         avatar: "_8",
         messages: [
-          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          {
+            text: "Ciao come ti chiami?",
+            date: "10/01/2022 16:15:22",
+            status: "received",
+            isActive: false,
+          },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
           {
             text: "Io mi chiamo Donatello piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
+            isActive: false,
           },
         ],
       },
@@ -129,6 +193,7 @@ const boolzapp = new Vue({
         text: this.newMessage,
         date: this.getDate(),
         status: "send",
+        isActive: false,
       };
       this.currentContact.messages.push(newMessage);
       this.newMessage = "";
@@ -140,6 +205,7 @@ const boolzapp = new Vue({
         text: "Ok, se lo dici tu..",
         date: this.getDate(),
         status: "received",
+        isActive: false,
       };
       this.currentContact.messages.push(newMessage);
     },

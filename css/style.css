@@ -237,7 +237,7 @@ main {
 
 .message-box .message-date {
   position: absolute;
-  bottom: 0rem;
+  bottom: 0;
   right: 0.3rem;
   font-size: 0.5rem;
   color: var(--grey);
@@ -253,6 +253,47 @@ main {
   margin-left: 0;
   margin-right: auto;
   background-color: var(--contact-message);
+}
+
+.message-box .message-controls .fa-angle-down {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.5rem;
+  color: var(--grey);
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.message-box:hover .message-controls .fa-angle-down {
+  visibility: visible;
+}
+
+.message-controls .message-dropdown {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  min-width: 100%;
+  list-style-type: none;
+  font-size: 0.8rem;
+  padding: 0;
+  display: none;
+}
+
+.message-controls .message-dropdown.active {
+  display: block;
+}
+
+.message-controls .message-dropdown li {
+  width: 70%;
+  background-color: var(--white);
+  padding: 0.5rem;
+  margin-right: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.message-controls .message-dropdown li:hover {
+  background-color: var(--grey);
 }
 
 /* | User Chat Box [Chat Room] */
