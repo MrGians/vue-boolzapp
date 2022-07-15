@@ -142,6 +142,16 @@ const boolzapp = new Vue({
       };
       this.currentContact.messages.push(newMessage);
       this.newMessage = "";
+
+      setTimeout(this.receivedNewMessage, 1000);
+    },
+    receivedNewMessage() {
+      const newMessage = {
+        text: "Ok, se lo dici tu..",
+        date: this.getDate(),
+        status: "received",
+      };
+      this.currentContact.messages.push(newMessage);
     },
   },
 });
