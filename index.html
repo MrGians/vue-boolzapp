@@ -78,12 +78,20 @@
             <div class="user__contacts-list">
               <ul class="contacts-list-group">
                 <li v-for="(contact, i) in filteredContacts" @click="getCurrentContactChat(i)">
+                  <!-- Single Contact Avatar -->
                   <img
                     class="cs-img-circle"
                     :src="`img/avatar${contact.avatar}.jpg`"
                     :alt="contact.name"
                   />
-                  <span class="ms-3">{{contact.name}}</span>
+                  <!-- Single Contact Name & Last Message -->
+                  <div class="ms-3">
+                    <span>{{contact.name}}</span>
+                    <span class="last-message d-block text-secondary">
+                      {{getLastMessage(contact)}}
+                    </span>
+                  </div>
+                  <span class="last-message-date">{{getLastMessageDate(contact)}}</span>
                 </li>
               </ul>
             </div>

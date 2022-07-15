@@ -143,5 +143,14 @@ const boolzapp = new Vue({
       };
       this.currentContact.messages.push(newMessage);
     },
+    getLastMessage(contact) {
+      const message = contact.messages[contact.messages.length - 1].text;
+
+      if (message.split("").length > 20) return message.substr(0, 20) + " ...";
+      else return message;
+    },
+    getLastMessageDate(contact) {
+      return contact.messages[contact.messages.length - 1].date;
+    },
   },
 });
