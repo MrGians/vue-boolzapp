@@ -123,7 +123,7 @@
             <div class="contact__chat-overview">
               <!-- Message Box | Contact (white) & User (green) -->
               <div
-                v-for="message in currentContact.messages"
+                v-for="(message, i) in currentContact.messages"
                 class="message-box"
                 :class="isMessageReceived(message)"
               >
@@ -138,7 +138,9 @@
                     class="fa-solid fa-angle-down"
                   ></i>
                   <ul class="message-dropdown" :class="{active : message.isActive}">
-                    <li>Cancella Messaggio</li>
+                    <li @click="deleteMessage(message, i, currentContact.messages)">
+                      Cancella Messaggio
+                    </li>
                     <li>Info Messaggio</li>
                   </ul>
                 </div>
