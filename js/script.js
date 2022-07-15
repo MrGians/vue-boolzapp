@@ -20,6 +20,7 @@
 // Cerchiamo di rispettare tutti i principi e le best practices viste finora (nomi di variabili e classi, centralizzazione ecc)
 // Buon lavoro e soprattutto buon divertimento!!
 
+// Vue JS
 const boolzapp = new Vue({
   el: "#boolzapp",
   data: {
@@ -130,13 +131,15 @@ const boolzapp = new Vue({
     isMessageReceived(message) {
       return message.status === "received" ? "received" : "sent";
     },
+    getDate() {
+      return dayjs().format("DD/MM/YYYY HH:mm:ss");
+    },
     sendNewMessage() {
       const newMessage = {
         text: this.newMessage,
-        date: "To do",
+        date: this.getDate(),
         status: "send",
       };
-
       this.currentContact.messages.push(newMessage);
       this.newMessage = "";
     },
