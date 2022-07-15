@@ -100,10 +100,21 @@ const boolzapp = new Vue({
       },
     ],
   },
-  computed: {},
+  computed: {
+    filteredContacts() {
+      const contactsList = [];
+
+      this.contacts.filter((contact) => {
+        if (contact.name.toLowerCase().indexOf(this.filteredQuery.toLowerCase()) != -1) {
+          contactsList.push(contact);
+        }
+      });
+      return contactsList;
+    },
+  },
   methods: {
     getCurrentContactChat(i) {
-      this.contacts.forEach((cont, index) => {
+      this.filteredContacts.forEach((cont, index) => {
         if (index === i) this.currentContact = cont;
       });
     },
@@ -131,16 +142,6 @@ const boolzapp = new Vue({
         status: "received",
       };
       this.currentContact.messages.push(newMessage);
-    },
-    filteredContacts() {
-      const contactsList = [];
-
-      this.contacts.filter((contact) => {
-        if (contact.name.toLowerCase().indexOf(this.filteredQuery.toLowerCase()) != -1) {
-          contactsList.push(contact);
-        }
-      });
-      return (this.contacts = contactsList);
     },
   },
 });

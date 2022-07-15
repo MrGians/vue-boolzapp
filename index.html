@@ -69,7 +69,6 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input
                   v-model="filteredQuery"
-                  @keyup="filteredContacts"
                   type="text"
                   placeholder="Cerca o Inizia una nuova chat"
                 />
@@ -78,7 +77,7 @@
             <!-- User Contacts List -->
             <div class="user__contacts-list">
               <ul class="contacts-list-group">
-                <li v-for="(contact, i) in contacts" @click="getCurrentContactChat(i)">
+                <li v-for="(contact, i) in filteredContacts" @click="getCurrentContactChat(i)">
                   <img
                     class="cs-img-circle"
                     :src="`img/avatar${contact.avatar}.jpg`"
