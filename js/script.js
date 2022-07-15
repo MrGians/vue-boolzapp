@@ -33,64 +33,88 @@ const boolzapp = new Vue({
         name: "Michele",
         avatar: "_1",
         messages: [
-          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
-          { text: "Io mi chiamo Michele piacere!", date: "10/01/2022 16:18:47" },
+          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          {
+            text: "Io mi chiamo Michele piacere!",
+            date: "10/01/2022 16:18:47",
+            status: "received",
+          },
         ],
       },
       {
         name: "Fabio",
         avatar: "_2",
         messages: [
-          { text: "Come ti chiami?", date: "22/01/2022 18:15:22" },
-          { text: "Io mi chiamo Fabio piacere!", date: "23/01/2022 16:18:47" },
+          { text: "Ciao come ti chiami?", date: "22/01/2022 18:15:22", status: "received" },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          { text: "Io mi chiamo Fabio piacere!", date: "23/01/2022 16:18:47", status: "received" },
         ],
       },
       {
         name: "Samuele",
         avatar: "_3",
         messages: [
-          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
-          { text: "Io mi chiamo Samuele piacere!", date: "10/01/2022 16:18:47" },
+          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          {
+            text: "Io mi chiamo Samuele piacere!",
+            date: "10/01/2022 16:18:47",
+            status: "received",
+          },
         ],
       },
       {
         name: "Luisa",
         avatar: "_4",
         messages: [
-          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
-          { text: "Io mi chiamo Luisa piacere!", date: "10/01/2022 16:18:47" },
+          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          { text: "Io mi chiamo Luisa piacere!", date: "10/01/2022 16:18:47", status: "received" },
         ],
       },
       {
         name: "Alessandra",
         avatar: "_5",
         messages: [
-          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
-          { text: "Io mi chiamo Alessandra piacere!", date: "10/01/2022 16:18:47" },
+          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          {
+            text: "Io mi chiamo Alessandra piacere!",
+            date: "10/01/2022 16:18:47",
+            status: "received",
+          },
         ],
       },
       {
         name: "Marco",
         avatar: "_6",
         messages: [
-          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
-          { text: "Io mi chiamo Marco piacere!", date: "10/01/2022 16:18:47" },
+          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          { text: "Io mi chiamo Marco piacere!", date: "10/01/2022 16:18:47", status: "received" },
         ],
       },
       {
         name: "Simona",
         avatar: "_7",
         messages: [
-          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
-          { text: "Io mi chiamo Simona piacere!", date: "10/01/2022 16:18:47" },
+          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          { text: "Io mi chiamo Simona piacere!", date: "10/01/2022 16:18:47", status: "received" },
         ],
       },
       {
         name: "Donatello",
         avatar: "_8",
         messages: [
-          { text: "Come ti chiami?", date: "10/01/2022 16:15:22" },
-          { text: "Io mi chiamo Donatello piacere!", date: "10/01/2022 16:18:47" },
+          { text: "Ciao come ti chiami?", date: "10/01/2022 16:15:22", status: "received" },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
+          {
+            text: "Io mi chiamo Donatello piacere!",
+            date: "10/01/2022 16:18:47",
+            status: "received",
+          },
         ],
       },
     ],
@@ -101,6 +125,9 @@ const boolzapp = new Vue({
       this.contacts.forEach((cont, index) => {
         if (index === i) this.currentContact = cont;
       });
+    },
+    isMessageReceived(message) {
+      return message.status === "received" ? "received" : "sent";
     },
   },
 });

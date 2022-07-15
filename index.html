@@ -110,12 +110,13 @@
               <!-- Message Box | User (white) & Contact (green) -->
               <div
                 v-for="message in currentContact.messages"
-                class="message-box message-from-contact"
+                class="message-box"
+                :class="isMessageReceived(message)"
               >
                 <!-- Content of the message -->
                 <div class="message-content">{{message.text}}</div>
                 <!-- Date when the message was sent -->
-                <div class="message-date">{{message.Date}}</div>
+                <div class="message-date">{{message.date}}</div>
               </div>
             </div>
             <!-- User Chat Box -->

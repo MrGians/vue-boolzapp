@@ -58,6 +58,7 @@ main {
 #sidebar {
   height: 100%;
   width: 35%;
+  flex-grow: 1;
 }
 
 #chat-room {
@@ -232,13 +233,13 @@ main {
   color: var(--grey);
 }
 
-.message-box.message-from-user {
+.message-box.sent {
   margin-left: auto;
   margin-right: 0;
   background-color: var(--user-message);
 }
 
-.message-box.message-from-contact {
+.message-box.received {
   margin-left: 0;
   margin-right: auto;
   background-color: var(--contact-message);
