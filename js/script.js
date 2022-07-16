@@ -210,16 +210,19 @@ const boolzapp = new Vue({
       this.currentContact.messages.push(newMessage);
     },
     getLastMessage(contact) {
+      if (contact.messages.length === 0) return "";
+
       const message = contact.messages[contact.messages.length - 1].text;
 
       if (message.split("").length > 20) return message.substr(0, 20) + " ...";
       else return message;
     },
     getLastMessageDate(contact) {
+      if (contact.messages.length === 0) return "";
+
       return contact.messages[contact.messages.length - 1].date;
     },
     deleteMessage(message, i, messagesArray) {
-      //TODO Fixare la cancellazione per l'ultimo messaggio della chat
       message.isActive = false;
       messagesArray.splice(i, 1);
     },
