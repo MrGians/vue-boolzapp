@@ -137,14 +137,9 @@
                 <div class="message-date">{{message.date}}</div>
                 <!-- Message Controls -->
                 <div class="message-controls">
-                  <i
-                    @click="message.isActive = !message.isActive"
-                    class="fa-solid fa-angle-down"
-                  ></i>
-                  <ul class="message-dropdown" :class="{active : message.isActive}">
-                    <li @click="deleteMessage(message, i, currentContact.messages)">
-                      Cancella Messaggio
-                    </li>
+                  <i @click="toggleDropdown(i)" class="fa-solid fa-angle-down"></i>
+                  <ul class="message-dropdown" :class="{'active' : i === activeDropdownIndex}">
+                    <li @click="deleteMessage(i, currentContact.messages)">Cancella Messaggio</li>
                     <li>Info Messaggio</li>
                   </ul>
                 </div>

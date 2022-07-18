@@ -6,6 +6,7 @@ const boolzapp = new Vue({
       name: "Nome Utente",
       avatar: "_io",
     },
+    activeDropdownIndex: null,
     filteredQuery: "",
     newMessage: "",
     currentContact: undefined,
@@ -169,8 +170,9 @@ const boolzapp = new Vue({
   },
   methods: {
     getCurrentContactChat(i) {
-      this.filteredContacts.forEach((cont, index) => {
-        if (index === i) this.currentContact = cont;
+      this.activeDropdownIndex = null;
+      this.contacts.forEach((contact, index) => {
+        if (index === i) this.currentContact = contact;
       });
     },
     isMessageReceived(message) {
@@ -215,9 +217,13 @@ const boolzapp = new Vue({
 
       return contact.messages[contact.messages.length - 1].date;
     },
-    deleteMessage(message, i, messagesArray) {
-      message.isActive = false;
+    toggleDropdown(i) {
+      if (this.activeDropdownIndex === null) this.activeDropdownIndex = i;
+      else this.activeDropdownIndex = null;
+    },
+    deleteMessage(i, messagesArray) {
       messagesArray.splice(i, 1);
+      this.activeDropdownIndex = null;
     },
   },
 });
