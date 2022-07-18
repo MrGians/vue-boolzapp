@@ -68,7 +68,8 @@
               <div class="user__input-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input
-                  v-model="filteredQuery"
+                  v-model.trim="filteredQuery"
+                  @keyup="filteredContacts"
                   type="text"
                   placeholder="Cerca o Inizia una nuova chat"
                 />
@@ -151,7 +152,7 @@
               <i class="chat-box-btn fa-regular fa-face-smile"></i>
               <!-- Chat Box Input -->
               <input
-                v-model="newMessage"
+                v-model.trim="newMessage"
                 @keyup.enter="sendNewMessage"
                 type="text"
                 placeholder="Scrivi un messaggio"

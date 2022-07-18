@@ -1,3 +1,4 @@
+Vue.config.devtools = true;
 // Vue JS
 const boolzapp = new Vue({
   el: "#boolzapp",
@@ -157,18 +158,16 @@ const boolzapp = new Vue({
       },
     ],
   },
-  computed: {
+  computed: {},
+  methods: {
     filteredContacts() {
+      const query = this.filteredQuery.toLowerCase();
       // IF the "query" is contained in the contactName it will be visible, otherwise no
       this.contacts.forEach((contact) => {
         const contactName = contact.name.toLowerCase();
-        const query = this.filteredQuery.toLowerCase();
-
         contact.visible = contactName.includes(query) ? true : false;
       });
     },
-  },
-  methods: {
     getCurrentContactChat(i) {
       // Reset the dropdown message if active
       this.activeDropdownIndex = null;
