@@ -204,22 +204,37 @@ const boolzapp = new Vue({
       // Creation & Push of Contact Message
       const newMessage = this.createMessage("Ok!", "received");
     },
-    getLastMessage(contact) {
+    getLastReceivedMessage(contact) {
       // If there are no messages, it writes an empty string
       if (contact.messages.length === 0) return "";
 
+      // filters only the messages received,
+      // to display as the last message always and only one of those received by the contact
+      const justReceivedMessage = contact.messages.reduce((acc, message) => {
+        if (message.status === "received") acc.push(message);
+        return acc;
+      }, []);
+
       // Returns the last chat message
-      const message = contact.messages[contact.messages.length - 1].text;
+      const message = justReceivedMessage[justReceivedMessage.length - 1].text;
       // IF message length exceeds 20 characters, it will be formatted
       if (message.split("").length > 20) return message.substr(0, 20) + " ...";
       // ELSE it will be printed without changes
       else return message;
     },
-    getLastMessageDate(contact) {
+    getLastReceivedMessageDate(contact) {
       // If there are no messages, it writes an empty string
       if (contact.messages.length === 0) return "";
+
+      // filters only the messages received,
+      // to display as the last message Date always and only one of those received by the contact
+      const justReceivedMessageDate = contact.messages.reduce((acc, message) => {
+        if (message.status === "received") acc.push(message);
+        return acc;
+      }, []);
+
       // Returns the last chat message date
-      return contact.messages[contact.messages.length - 1].date;
+      return justReceivedMessageDate[justReceivedMessageDate.length - 1].date;
     },
     toggleDropdown(i) {
       // Toggle messages dropdown on indexes equality
