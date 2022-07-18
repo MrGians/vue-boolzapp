@@ -77,7 +77,11 @@
             <!-- User Contacts List -->
             <div class="user__contacts-list">
               <ul class="contacts-list-group">
-                <li v-for="(contact, i) in filteredContacts" @click="getCurrentContactChat(i)">
+                <li
+                  v-for="(contact, i) in contacts"
+                  v-show="contact.visible"
+                  @click="getCurrentContactChat(i)"
+                >
                   <!-- Single Contact Avatar -->
                   <img
                     class="cs-img-circle"

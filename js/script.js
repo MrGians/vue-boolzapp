@@ -13,152 +13,144 @@ const boolzapp = new Vue({
       {
         name: "Michele",
         avatar: "_1",
+        visible: true,
         messages: [
           {
             text: "Ciao come ti chiami?",
             date: "10/01/2022 16:15:22",
             status: "received",
-            isActive: false,
           },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
           {
             text: "Io mi chiamo Michele piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
-            isActive: false,
           },
         ],
       },
       {
         name: "Fabio",
         avatar: "_2",
+        visible: true,
         messages: [
           {
             text: "Ciao come ti chiami?",
             date: "22/01/2022 18:15:22",
             status: "received",
-            isActive: false,
           },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
           {
             text: "Io mi chiamo Fabio piacere!",
             date: "23/01/2022 16:18:47",
             status: "received",
-            isActive: false,
           },
         ],
       },
       {
         name: "Samuele",
         avatar: "_3",
+        visible: true,
         messages: [
           {
             text: "Ciao come ti chiami?",
             date: "10/01/2022 16:15:22",
             status: "received",
-            isActive: false,
           },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
           {
             text: "Io mi chiamo Samuele piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
-            isActive: false,
           },
         ],
       },
       {
         name: "Luisa",
         avatar: "_4",
+        visible: true,
         messages: [
           {
             text: "Ciao come ti chiami?",
             date: "10/01/2022 16:15:22",
             status: "received",
-            isActive: false,
           },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
           {
             text: "Io mi chiamo Luisa piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
-            isActive: false,
           },
         ],
       },
       {
         name: "Alessandra",
         avatar: "_5",
+        visible: true,
         messages: [
           {
             text: "Ciao come ti chiami?",
             date: "10/01/2022 16:15:22",
             status: "received",
-            isActive: false,
           },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
           {
             text: "Io mi chiamo Alessandra piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
-            isActive: false,
           },
         ],
       },
       {
         name: "Marco",
         avatar: "_6",
+        visible: true,
         messages: [
           {
             text: "Ciao come ti chiami?",
             date: "10/01/2022 16:15:22",
             status: "received",
-            isActive: false,
           },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
           {
             text: "Io mi chiamo Marco piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
-            isActive: false,
           },
         ],
       },
       {
         name: "Simona",
         avatar: "_7",
+        visible: true,
         messages: [
           {
             text: "Ciao come ti chiami?",
             date: "10/01/2022 16:15:22",
             status: "received",
-            isActive: false,
           },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
           {
             text: "Io mi chiamo Simona piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
-            isActive: false,
           },
         ],
       },
       {
         name: "Donatello",
         avatar: "_8",
+        visible: true,
         messages: [
           {
             text: "Ciao come ti chiami?",
             date: "10/01/2022 16:15:22",
             status: "received",
-            isActive: false,
           },
-          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent", isActive: false },
+          { text: "Gianluca, tu?", date: "10/01/2022 16:15:22", status: "sent" },
           {
             text: "Io mi chiamo Donatello piacere!",
             date: "10/01/2022 16:18:47",
             status: "received",
-            isActive: false,
           },
         ],
       },
@@ -166,14 +158,13 @@ const boolzapp = new Vue({
   },
   computed: {
     filteredContacts() {
-      const contactsList = [];
+      const query = this.filteredQuery.toLowerCase();
 
-      this.contacts.filter((contact) => {
-        if (contact.name.toLowerCase().indexOf(this.filteredQuery.toLowerCase()) != -1) {
-          contactsList.push(contact);
-        }
+      this.contacts.forEach((contact) => {
+        const contactName = contact.name.toLowerCase();
+
+        contact.visible = contactName.includes(query) ? true : false;
       });
-      return contactsList;
     },
   },
   methods: {
@@ -189,6 +180,8 @@ const boolzapp = new Vue({
       return dayjs().format("DD/MM/YYYY HH:mm:ss");
     },
     sendNewMessage() {
+      if (!this.newMessage) return;
+
       const newMessage = {
         text: this.newMessage,
         date: this.getDate(),
