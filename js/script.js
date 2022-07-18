@@ -159,10 +159,10 @@ const boolzapp = new Vue({
   },
   computed: {
     filteredContacts() {
-      const query = this.filteredQuery.toLowerCase();
-
+      // IF the "query" is contained in the contactName it will be visible, otherwise no
       this.contacts.forEach((contact) => {
         const contactName = contact.name.toLowerCase();
+        const query = this.filteredQuery.toLowerCase();
 
         contact.visible = contactName.includes(query) ? true : false;
       });
@@ -170,59 +170,67 @@ const boolzapp = new Vue({
   },
   methods: {
     getCurrentContactChat(i) {
+      // Reset the dropdown message if active
       this.activeDropdownIndex = null;
+      // Assigns the object containing the single contact to "currentContact" on indexes equality
       this.contacts.forEach((contact, index) => {
         if (index === i) this.currentContact = contact;
       });
     },
     isMessageReceived(message) {
+      // Returns a class to be assigned to the message based on "status"
       return message.status === "received" ? "received" : "sent";
     },
-    getDate() {
-      return dayjs().format("DD/MM/YYYY HH:mm:ss");
-    },
-    sendNewMessage() {
-      if (!this.newMessage) return;
-
+    createMessage(messageText, status) {
+      // Function to create messages
       const newMessage = {
-        text: this.newMessage,
-        date: this.getDate(),
-        status: "send",
-        isActive: false,
+        text: messageText,
+        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+        status: status,
       };
       this.currentContact.messages.push(newMessage);
+    },
+    sendNewMessage() {
+      // IF the message is undefined do not proceed
+      if (!this.newMessage) return;
+
+      // Creation & Push of User Message
+      const newMessage = this.createMessage(this.newMessage, "send");
       this.newMessage = "";
 
+      // Current Contact Reply (after 1s)
       setTimeout(this.receivedNewMessage, 1000);
     },
     receivedNewMessage() {
-      const newMessage = {
-        text: "Ok, se lo dici tu..",
-        date: this.getDate(),
-        status: "received",
-        isActive: false,
-      };
-      this.currentContact.messages.push(newMessage);
+      // Creation & Push of Contact Message
+      const newMessage = this.createMessage("Ok!", "received");
     },
     getLastMessage(contact) {
+      // If there are no messages, it writes an empty string
       if (contact.messages.length === 0) return "";
 
+      // Returns the last chat message
       const message = contact.messages[contact.messages.length - 1].text;
-
+      // IF message length exceeds 20 characters, it will be formatted
       if (message.split("").length > 20) return message.substr(0, 20) + " ...";
+      // ELSE it will be printed without changes
       else return message;
     },
     getLastMessageDate(contact) {
+      // If there are no messages, it writes an empty string
       if (contact.messages.length === 0) return "";
-
+      // Returns the last chat message date
       return contact.messages[contact.messages.length - 1].date;
     },
     toggleDropdown(i) {
+      // Toggle messages dropdown on indexes equality
       if (this.activeDropdownIndex === null) this.activeDropdownIndex = i;
       else this.activeDropdownIndex = null;
     },
     deleteMessage(i, messagesArray) {
+      // Removes the message from the list
       messagesArray.splice(i, 1);
+      // Reset the dropdown message if active
       this.activeDropdownIndex = null;
     },
   },
