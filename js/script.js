@@ -10,7 +10,7 @@ const boolzapp = new Vue({
     activeDropdownIndex: null,
     filteredQuery: "",
     newMessage: "",
-    currentContact: undefined,
+    currentContactIndex: null,
     contacts: [
       {
         name: "Michele",
@@ -168,18 +168,13 @@ const boolzapp = new Vue({
         contact.visible = contactName.includes(query) ? true : false;
       });
     },
-    getCurrentContactChat(i) {
+    setCurrentContactChat(i) {
       // Reset the dropdown message if active
       this.activeDropdownIndex = null;
-      // Assigns the object containing the single contact to "currentContact" on indexes equality
-      this.contacts.forEach((contact, index) => {
-        if (index === i) this.currentContact = contact;
-      });
+      // Assigns the contact index to "currentContactIndex"
+      this.currentContactIndex = i;
     },
-    isMessageReceived(message) {
-      // Returns a class to be assigned to the message based on "status"
-      return message.status === "received" ? "received" : "sent";
-    },
+
     createMessage(messageText, status) {
       // Function to create messages
       const newMessage = {
@@ -187,14 +182,14 @@ const boolzapp = new Vue({
         date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
         status: status,
       };
-      this.currentContact.messages.push(newMessage);
+      this.contacts[this.currentContactIndex].messages.push(newMessage);
     },
     sendNewMessage() {
       // IF the message is undefined do not proceed
       if (!this.newMessage) return;
 
       // Creation & Push of User Message
-      const newMessage = this.createMessage(this.newMessage, "send");
+      const newMessage = this.createMessage(this.newMessage, "sent");
       this.newMessage = "";
 
       // Current Contact Reply (after 1s)
@@ -241,9 +236,9 @@ const boolzapp = new Vue({
       if (this.activeDropdownIndex === null) this.activeDropdownIndex = i;
       else this.activeDropdownIndex = null;
     },
-    deleteMessage(i, messagesArray) {
+    deleteMessage(i) {
       // Removes the message from the list
-      messagesArray.splice(i, 1);
+      this.contacts[this.currentContactIndex].messages.splice(i, 1);
       // Reset the dropdown message if active
       this.activeDropdownIndex = null;
     },

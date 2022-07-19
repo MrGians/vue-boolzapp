@@ -81,7 +81,7 @@
                 <li
                   v-for="(contact, i) in contacts"
                   v-show="contact.visible"
-                  @click="getCurrentContactChat(i)"
+                  @click="setCurrentContactChat(i)"
                 >
                   <!-- Single Contact Avatar -->
                   <img
@@ -102,18 +102,18 @@
             </div>
           </div>
           <!-- Main Chat Room | Right -->
-          <div v-if="currentContact" id="chat-room">
+          <div v-if="contacts[currentContactIndex]" id="chat-room">
             <!-- Contact Settings View -->
             <div class="contact__settings">
               <!-- Contact Picture, Full Name & Last Access -->
               <div class="contact__basic-info">
                 <img
                   class="cs-img-circle"
-                  :src="`img/avatar${currentContact.avatar}.jpg`"
-                  :alt="currentContact.name"
+                  :src="`img/avatar${contacts[currentContactIndex].avatar}.jpg`"
+                  :alt="contacts[currentContactIndex].name"
                 />
                 <div class="ms-3">
-                  <h6 class="mb-0">{{currentContact.name}}</h6>
+                  <h6 class="mb-0">{{contacts[currentContactIndex].name}}</h6>
                   <span class="text-secondary">Ultimo accesso oggi alle</span>
                 </div>
               </div>
@@ -128,9 +128,9 @@
             <div class="contact__chat-overview">
               <!-- Message Box | Contact (white) & User (green) -->
               <div
-                v-for="(message, i) in currentContact.messages"
+                v-for="(message, i) in contacts[currentContactIndex].messages"
                 class="message-box"
-                :class="isMessageReceived(message)"
+                :class="message.status"
               >
                 <!-- Content of the message -->
                 <div class="message-content">{{message.text}}</div>
@@ -140,7 +140,7 @@
                 <div class="message-controls">
                   <i @click="toggleDropdown(i)" class="fa-solid fa-angle-down"></i>
                   <ul class="message-dropdown" :class="{'active' : i === activeDropdownIndex}">
-                    <li @click="deleteMessage(i, currentContact.messages)">Cancella Messaggio</li>
+                    <li @click="deleteMessage(i)">Cancella Messaggio</li>
                     <li>Info Messaggio</li>
                   </ul>
                 </div>
